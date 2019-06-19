@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed;
+    public int health = 100;
   
     void Start()
     {
@@ -16,8 +17,6 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey("w"))
         {
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
-
-            
         }
         if (Input.GetKey("s"))
         {
@@ -33,6 +32,14 @@ public class PlayerController : MonoBehaviour
         }
         
     }
+    private void Update()
+    {
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
 
 }
 

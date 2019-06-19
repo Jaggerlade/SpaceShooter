@@ -16,7 +16,7 @@ public class Disparador : MonoBehaviour
     {
         if (Input.GetKeyDown("right shift"))
         {
-            print("Entro el if");
+            
             Invoke("Disparar", 0.1f);
         }
     }

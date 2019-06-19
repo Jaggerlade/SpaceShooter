@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject asteroid;
     void Start()
     {
-        
+        InvokeRepeating("CreateObject", 3f, 1f);
+
     }
 
     // Update is called once per frame
     void Update()
     {
         
+
+    }
+
+    void CreateObject()
+    {
+        Vector3 posicion = new Vector3(Random.Range(-27f, 25f), 0, 17.107f);
+        Instantiate(asteroid, posicion, Quaternion.identity);
     }
 }
