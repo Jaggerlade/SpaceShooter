@@ -17,13 +17,13 @@ public class Disparador : MonoBehaviour
         if (Input.GetKeyDown("right shift"))
         {
             print("Entro el if");
-            Invoke("Disparar", 2f);
+            Invoke("Disparar", 0.1f);
         }
     }
 
     void Disparar()
     {
-        Instantiate(Bullet, transform.position, transform.rotation);
+        Instantiate(Bullet, transform.position, transform.localRotation);
         
     }
     
