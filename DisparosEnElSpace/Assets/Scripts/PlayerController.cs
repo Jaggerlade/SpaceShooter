@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed;
-    public int health = 100;
+    public float health = 100;
+    public Asteroid asteroid;
   
     void Start()
     {
@@ -38,8 +39,16 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
 
+
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Asteroid")
+        {
+            health -= asteroid.asteroidDamage;
+        }
+    }
 
 }
 
