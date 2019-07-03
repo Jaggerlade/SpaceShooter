@@ -8,23 +8,30 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.Translate(Vector3.forward);
-        
+
     }
     public void DestroyObject()
     {
         if (gameObject != null)
         {
-            Destroy(gameObject);
+            DestroyImmediate(gameObject, true);
 
         }
     }
+    public void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Asteroid" && gameObject != null)
+        {
+            Destroy(gameObject);
 
-    
+        }
+
+    }
 }

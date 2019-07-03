@@ -20,7 +20,7 @@ public class Spawner : MonoBehaviour
 
     void CreateObject()
     {
-        Vector3 posicion = new Vector3(Random.Range(-27f, 25f), 0, 17.107f);
+        Vector3 posicion = new Vector3(Random.Range(-17f, 17f), 0, 17.107f);
         Instantiate(asteroid, posicion, Quaternion.identity);
     }
 }

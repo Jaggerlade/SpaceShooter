@@ -6,9 +6,12 @@ public class Disparador : MonoBehaviour
 {
 
     public GameObject Bullet;
+    public AudioClip shootSound;
+    public AudioSource audioManager;
     void Start()
     {
         
+        audioManager = FindObjectOfType<AudioSource>();
     }
 
     // Update is called once per frame
@@ -16,13 +19,14 @@ public class Disparador : MonoBehaviour
     {
         if (Input.GetKeyDown("right shift"))
         {
-            
-            Invoke("Disparar", 0.1f);
+
+            Disparar();
         }
     }
 
     void Disparar()
     {
+        audioManager.PlayOneShot(shootSound, 0.45f);
         Instantiate(Bullet, transform.position, transform.localRotation);
         
     }
